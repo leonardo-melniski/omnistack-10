@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('../resources/config.js');
@@ -10,7 +11,8 @@ mongoose.connect(config.dev.db.mongo.url, {
   useUnifiedTopology: true
 });
 
-
+// app.use(cors({ origin: 'https://localhost:3000' }));
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
